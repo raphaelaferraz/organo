@@ -3,7 +3,7 @@
 }
 
 .campo_texto--label {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
   display: block;
   margin-bottom: 8px;
@@ -16,6 +16,7 @@
   outline: none;
   box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.06);
   background-color: #FFFFFF;
-  font-size: 24px;
-  padding: 24px;
+  font-size: 18px;
+  padding: 20px;
+  border-radius: 15px;
 }
