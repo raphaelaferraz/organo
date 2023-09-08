@@ -1,5 +1,6 @@
 import CampoTexto from '../CampoTexto';
 import ListaSuspensa from '../ListaSuspensa';
+import Botao from '../Botao';
 import './Formulario.css'
 
 const Formulario = () => {
