@@ -1,3 +1,5 @@
+import './CampoTexto.css'
+
 const CampoTexto = () => {
   return(
     <div className="campo_texto">
