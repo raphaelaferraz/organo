@@ -1,12 +1,12 @@
-import './CampoTexto.css'
+import './CampoTexto.css';
 
-const CampoTexto = () => {
-  return(
-    <div className="campo_texto">
-      <label className="campo_texto--label">Nome</label>
-      <input className="campo_texto--input" placeholder="Digite o seu nome" />
+const CampoTexto = props => {
+  return (
+    <div className='campo_texto'>
+      <label className='campo_texto--label'>{props.label}</label>
+      <input className='campo_texto--input' placeholder={props.placeholder} />
     </div>
-  )
-}
+  );
+};
 
-export default CampoTexto
+export default CampoTexto;
