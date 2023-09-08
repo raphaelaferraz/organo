@@ -13,9 +13,16 @@ const Formulario = () => {
     'Mobile',
     'Inovação e Gestão'
   ]
+
+  const salvar = (evento) => {
+    evento.preventDefault()
+    console.log('Formulário foi submetido!!')
+  }
+
+
   return (
     <section className="secao">
-      <form className="secao_formulario">
+      <form onSubmit={salvar} className="secao_formulario">
         <h2 className="titulo_formulario">Preencha os dados para criar o card do colaborador:</h2>
         <CampoTexto label='Nome' placeholder='Digite o seu nome' />
         <CampoTexto label='Cargo' placeholder='Digite o seu cargo' />
