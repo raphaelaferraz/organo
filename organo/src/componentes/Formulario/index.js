@@ -4,7 +4,8 @@ import Botao from '../Botao';
 import './Formulario.css';
 import { useState } from 'react';
 
-const Formulario = () => {
+const Formulario = (props) => {
+
   const times = [
     'Programação',
     'Front-End',
@@ -13,7 +14,7 @@ const Formulario = () => {
     'UX e Design',
     'Mobile',
     'Inovação e Gestão'
-  ];
+  ]
 
   const [nome, setNome] = useState('')
   const [cargo, setCargo] = useState('')
@@ -22,7 +23,12 @@ const Formulario = () => {
 
   const salvar = evento => {
     evento.preventDefault();
-    console.log('Formulário foi submetido!!', nome, cargo, imagem, time);
+    props.colaboradorCadastrado({
+      nome,
+      cargo, 
+      imagem,
+      time
+    })
   };
 
   return (
