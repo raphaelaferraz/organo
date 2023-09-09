@@ -1,7 +1,8 @@
 import CampoTexto from '../CampoTexto';
 import ListaSuspensa from '../ListaSuspensa';
 import Botao from '../Botao';
-import './Formulario.css'
+import './Formulario.css';
+import { useState } from 'react';
 
 const Formulario = () => {
   const times = [
@@ -12,26 +13,48 @@ const Formulario = () => {
     'UX e Design',
     'Mobile',
     'Inovação e Gestão'
-  ]
+  ];
 
-  const salvar = (evento) => {
-    evento.preventDefault()
-    console.log('Formulário foi submetido!!')
-  }
+  const [nome, setNome] = useState('');
+  const [cargo, setCargo] = useState('');
+  const [imagem, setImagem] = useState('');
 
+  const salvar = evento => {
+    evento.preventDefault();
+    console.log('Formulário foi submetido!!', nome, cargo, imagem);
+  };
 
   return (
-    <section className="secao">
-      <form onSubmit={salvar} className="secao_formulario">
-        <h2 className="titulo_formulario">Preencha os dados para criar o card do colaborador:</h2>
-        <CampoTexto obrigatorio={true} label='Nome' placeholder='Digite o seu nome' />
-        <CampoTexto obrigatorio={true} label='Cargo' placeholder='Digite o seu cargo' />
-        <CampoTexto label='Imagem' placeholder='Informe o endereço da imagem' />
-        <ListaSuspensa obrigatorio={true} label="Time" itens={times} />
+    <section className='secao'>
+      <form onSubmit={salvar} className='secao_formulario'>
+        <h2 className='titulo_formulario'>
+          Preencha os dados para criar o card do colaborador:
+        </h2>
+        <CampoTexto
+          valor={nome}
+          textoAlterado={valor => setNome(valor)}
+          obrigatorio={true}
+          label='Nome'
+          placeholder='Digite o seu nome'
+        />
+        <CampoTexto
+          valor={cargo}
+          textoAlterado={valor => setCargo(valor)}
+          obrigatorio={true}
+          label='Cargo'
+          placeholder='Digite o seu cargo'
+        />
+        <CampoTexto
+          valor={imagem}
+          textoAlterado={valor => setImagem(valor)}
+          label='Imagem'
+          placeholder='Informe o endereço da imagem'
+        />
+        <ListaSuspensa obrigatorio={true} label='Time' itens={times} />
         <Botao>Criar card</Botao>
       </form>
     </section>
   );
 };
 
-export default Formulario
+export default Formulario;
