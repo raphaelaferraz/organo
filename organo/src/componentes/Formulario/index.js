@@ -15,13 +15,14 @@ const Formulario = () => {
     'Inovação e Gestão'
   ];
 
-  const [nome, setNome] = useState('');
-  const [cargo, setCargo] = useState('');
-  const [imagem, setImagem] = useState('');
+  const [nome, setNome] = useState('')
+  const [cargo, setCargo] = useState('')
+  const [imagem, setImagem] = useState('')
+  const [time, setTime] = useState('')
 
   const salvar = evento => {
     evento.preventDefault();
-    console.log('Formulário foi submetido!!', nome, cargo, imagem);
+    console.log('Formulário foi submetido!!', nome, cargo, imagem, time);
   };
 
   return (
@@ -50,7 +51,13 @@ const Formulario = () => {
           label='Imagem'
           placeholder='Informe o endereço da imagem'
         />
-        <ListaSuspensa obrigatorio={true} label='Time' itens={times} />
+        <ListaSuspensa 
+          valor = {time}
+          textoAlterado={valor => setTime(valor)}
+          obrigatorio={true} 
+          label='Time' 
+          itens={times} 
+        />
         <Botao>Criar card</Botao>
       </form>
     </section>
