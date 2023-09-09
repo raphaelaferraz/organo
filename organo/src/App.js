@@ -4,8 +4,12 @@ import Formulario from './componentes/Formulario';
 import Time from './componentes/Time';
 
 function App() {
-
   const times = [
+    {
+      nome: 'Programação',
+      corPrimaria: '#57C278',
+      corSecundaria: '#D9F7E9'
+    },
     {
       nome: 'Front-End',
       corPrimaria: '#82CFFA',
@@ -36,7 +40,7 @@ function App() {
       corPrimaria: '#FF8A29',
       corSecundaria: '#FFEEDF'
     }
-  ]
+  ];
 
   const [colaboradores, setColaboradores] = useState([]);
 
@@ -51,8 +55,14 @@ function App() {
         colaboradorCadastrado={colaborador => adicionaColaborador(colaborador)}
       />
 
-      {times.map(time => <Time key={time.nome} nome={time.nome} corPrimaria={time.corPrimaria} corSecundaria={time.corSecundaria}/>)}
-
+      {times.map(time => (
+        <Time
+          key={time.nome}
+          nome={time.nome}
+          corPrimaria={time.corPrimaria}
+          corSecundaria={time.corSecundaria}
+        />
+      ))}
     </div>
   );
 }
