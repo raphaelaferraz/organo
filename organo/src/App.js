@@ -40,31 +40,26 @@ function App() {
       corPrimaria: '#FF8A29',
       corSecundaria: '#FFEEDF'
     }
-  ];
+  ]
 
-  const [colaboradores, setColaboradores] = useState([]);
+  const [colaboradores, setColaboradores] = useState([])
 
   const adicionaColaborador = colaborador => {
-    console.log(colaborador);
-    setColaboradores([...colaboradores, colaborador]);
-  };
+    console.log(colaborador)
+    setColaboradores([...colaboradores, colaborador])
+  }
+
   return (
     <div className='App'>
       <Banner />
       <Formulario
+        times={times.map(time => time.nome)}
         colaboradorCadastrado={colaborador => adicionaColaborador(colaborador)}
       />
 
-      {times.map(time => (
-        <Time
-          key={time.nome}
-          nome={time.nome}
-          corPrimaria={time.corPrimaria}
-          corSecundaria={time.corSecundaria}
-        />
-      ))}
+      {times.map(time => (<Time key={time.nome} nome={time.nome} corPrimaria={time.corPrimaria} corSecundaria={time.corSecundaria}/>))}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
